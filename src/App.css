@@ -1,0 +1,21 @@
+.card {
+  position: relative;
+}
+
+.icon {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  cursor: pointer;
+}
+
+.reminder {
+  border-left: solid 10px green;
+  border-radius: 5px;
+}
+
+.icon-face {
+  position: absolute;
+  right: 400px;
+  top: 1.2rem;
+}
