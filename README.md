@@ -21,7 +21,7 @@ This is an application that I use React.js to track my task.
 
 ### Links
 
-- Live Site URL: [Live Site](/task-track-react.netlify.app/)
+- Live Site URL: [Live Site](https://task-track-react.netlify.app/)
 
 ## My process
 
