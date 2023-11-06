@@ -32,13 +32,14 @@ This is an application that I use React.js to track my task.
 - Sass-CSS preprocessor
 - Responsive Design
 - React.js Basics
+- React.js Components
 - React.js useState
 - React.js props
 
 ### What I learned
 
-I learned essential parts of responsive design at this challenge.Also I reinforced some konowledge about CSS.
-Apart from these I reviewed React.js basics ans Sass variables and essentials.
+I learned essential parts of React JS at this challenge such as props add components.Also I reinforced my knowledge about Bootstrap.
+Apart from these I reviewed React.js basics and essentials.
 To see how you can add code snippets, see below:
 
 - HTML
@@ -50,55 +51,78 @@ To see how you can add code snippets, see below:
 </body>
 ```
 
-- Sass/Scss
+- CSS
 
 ```scss
-@import './reset', './variables';
+.card {
+  position: relative;
+}
 
-body {
-  background-color: $backgrounColor;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem;
-    }
+.icon {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  cursor: pointer;
+}
 ```
 
 - JSX
 
 ```jsx
-import React from 'react';
+import { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
+import Inputs from './components/Inputs';
+import TaskList from './components/TaskList';
 
-export default function Card(data) {
-  const { id, title, image, desc } = data;
+function App() {
+  const [showInputs, setShowInputs] = useState(false);
+  const [tasks, setTasks] = useState([
+    {
+      id: 1,
+      text: 'Renewal Gym Membership',
+      day: 'Nov 5th at 11:30am',
+      reminder: true,
+    },
+    {
+      id: 2,
+      text: 'Register for School',
+      day: 'Nov 6th at 2:30pm',
+      reminder: false,
+    },
+    {
+      id: 3,
+      text: 'Change the Appointment',
+      day: 'Nov 3rd at 2:30pm',
+      reminder: true,
+    },
+  ]);
+
+  const handleShowTask = () => {
+    setShowInputs(!showInputs);
+  };
   return (
-    <div className="cards">
-      <div className="title">
-        <h1>{title}</h1>
-      </div>
-      <img src={image} alt="" />
-      <div className="card-over">
-        <p>{desc}</p>
-      </div>
+    <div className="container border border-secondary rounded-2 mt-4 mw-50">
+      <Header showInputs={showInputs} handleShowTask={handleShowTask} />
+      <Inputs setTasks={setTasks} tasks={tasks} showInputs={showInputs} />
+      <TaskList tasks={tasks} setTasks={setTasks} />
     </div>
   );
 }
+
+export default App;
 ```
 
 ### Continued development
 
 - Responsive Design
-- Sass
+- Bootstrap
 - React
 
 ### Useful resources
 
 - [React Documentation](https://react.dev/)
-- [Sass Basics](https://sass-lang.com/guide/)
+- [Bootstrap](https://getbootstrap.com/)
 
 ## Author
 
